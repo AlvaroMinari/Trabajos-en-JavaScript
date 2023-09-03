@@ -1,0 +1,23 @@
+let free = false;
+
+const validarcliente=(time)=>{
+	let edad = prompt("cual es tu edad?");
+	if(edad>=18){
+		if(time>=2 && time<7 && free==false){
+			alert("podes pasar gratis, porque sos la primera persona despues de las 2 AM");
+			free=true;
+		}else{
+			alert(`Son las ${time}:00hs podes pasar pero pagando`);
+		}
+	}else{
+		alert("no puedes pasar, eres menor de edad");
+	}
+
+}
+
+validarcliente(23);
+validarcliente(6);
+validarcliente(8);
+validarcliente(19);
+validarcliente(2);
+validarcliente(3);
