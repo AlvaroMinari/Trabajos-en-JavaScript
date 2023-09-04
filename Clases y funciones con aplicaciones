@@ -1,0 +1,63 @@
+  class App {
+	constructor(descargas, puntuacion, peso) {
+	  this.descargas = descargas;
+	  this.puntuacion = puntuacion;
+	  this.peso = peso;
+	  this.iniciada = false;
+	  this.instalada = false;
+	}
+  
+	abrir() {
+	  if (this.iniciada == false && this.instalada == true) {
+		this.iniciada = true;
+		alert("App iniciada");
+	  }
+	}
+  
+	cerrar() {
+	  if (this.iniciada == true && this.instalada == true) {
+		this.iniciada = false;
+		alert("App cerrada");
+	  }
+	}
+  
+	instalar() {
+	  if (this.instalada == false) {
+		this.instalada = true;
+		alert("App instalada correctamente");
+	  }
+	}
+  
+	desinstalar() {
+	  if (this.instalada == true) {
+		this.instalada = false;
+		alert("App desinstalada correctamente");
+	  }
+	}
+  
+	infoApp() {
+	  return `
+	  Descargas: ${this.descargas}<br>
+	  Puntuación: ${this.puntuacion}<br>
+	  Peso: ${this.peso}<br>
+	  `;
+	}
+  }
+  
+  const app1 = new App("16.000", "5 estrellas", "800mb");
+  const app2 = new App("26.000", "4.5 estrellas", "700mb");
+  const app3 = new App("36.000", "4 estrellas", "600mb");
+  const app4 = new App("46.000", "3.5 estrellas", "500mb");
+  const app5 = new App("56.000", "3 estrellas", "400mb");
+  const app6 = new App("66.000", "2.5 estrellas", "300mb");
+  const app7 = new App("76.000", "2 estrellas", "200mb");
+  
+  document.write(`
+	${app1.infoApp()}<br>
+	${app2.infoApp()}<br>
+	${app3.infoApp()}<br>
+	${app4.infoApp()}<br>
+	${app5.infoApp()}<br>
+	${app6.infoApp()}<br>
+	${app7.infoApp()}<br>
+  `);
