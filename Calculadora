@@ -1,0 +1,78 @@
+//codigo HTML
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Calculadora con JavaScript</title>
+<style>
+	.calculator {
+		width: 250px;
+		margin: 0 auto;
+	}
+	input[type="text"] {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	input[type="button"] {
+		width: 48px;
+		height: 48px;
+		font-size: 18px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+</style>
+</head>
+<body>
+	<div class="calculator">
+        <input type="text" id="display" readonly>
+        <br>
+        <input type="button" value="7" onclick="agregarNumero(7)">
+        <input type="button" value="8" onclick="agregarNumero(8)">
+        <input type="button" value="9" onclick="agregarNumero(9)">
+        <input type="button" value="/" onclick="agregarOperador('/')">
+        <br>
+        <input type="button" value="4" onclick="agregarNumero(4)">
+        <input type="button" value="5" onclick="agregarNumero(5)">
+        <input type="button" value="6" onclick="agregarNumero(6)">
+        <input type="button" value="*" onclick="agregarOperador('*')">
+        <br>
+        <input type="button" value="1" onclick="agregarNumero(1)">
+        <input type="button" value="2" onclick="agregarNumero(2)">
+        <input type="button" value="3" onclick="agregarNumero(3)">
+        <input type="button" value="-" onclick="agregarOperador('-')">
+        <br>
+        <input type="button" value="0" onclick="agregarNumero(0)">
+        <input type="button" value="C" onclick="limpiar()">
+        <input type="button" value="=" onclick="calcularResultado()">
+        <input type="button" value="+" onclick="agregarOperador('+')">
+    </div>
+<script src="codigo.js"></script>
+</body>
+</html>
+
+
+
+//codigo JS
+let operacion = '';
+let display = document.getElementById('display');
+
+function agregarNumero(num) {
+    display.value += num;
+}
+
+function agregarOperador(op) {
+    display.value += ' ' + op + ' ';
+}
+
+function limpiar() {
+    display.value = '';
+}
+
+function calcularResultado() {
+    operacion = display.value;
+    try {
+        display.value = eval(operacion);
+    } catch (error) {
+        display.value = 'Error';
+    }
+}
